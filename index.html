@@ -8,7 +8,7 @@
         @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Yuji+Syuku&display=swap');
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { background: #000; overflow: hidden; height: 100vh; font-family: 'Orbitron', sans-serif; }
-        .bg-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: url('https://i.postimg.cc/1XKRCQPj/09d9d374007975-5c1d081cac807.jpg') no-repeat center center; background-size: 155%; filter: brightness(0.6) contrast(1.2); z-index: -2; }
+        .bg-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: url('https://i.postimg.cc/1XKRCQPj/09d9d374007975-5c1d081cac807.jpg') no-repeat center center; background-size: 155%; filter: brightness(0.65) contrast(1.2); z-index: -2; }
         canvas { position: fixed; top: 0; left: 0; z-index: -1; opacity: 0.8; }
         .container { display: flex; flex-direction: column; justify-content: flex-start; align-items: center; height: 100vh; text-align: center; padding-top: 25px; overflow-y: auto; }
         .hacker-img { width: 140px; height: 170px; border: 3px solid #ff0000; border-radius: 10px; margin-bottom: 10px; box-shadow: 0 0 25px #ff0000; object-fit: cover; }
@@ -18,16 +18,13 @@
         .logo-hybrid { width: 280px; opacity: 0.8; filter: drop-shadow(0 0 5px red); margin-bottom: 15px; }
         .audio-btn { background: rgba(255,0,0,0.1); border: 2px solid #ff0000; color: #ff0000; font-family: 'Orbitron'; padding: 10px 20px; cursor: pointer; border-radius: 8px; box-shadow: 0 0 15px #ff0000; margin-bottom: 20px; font-weight: bold; }
         
-        /* RESTORED GLITCH EFFECT */
-        @keyframes glitch {
-          0% { transform: translate(0); text-shadow: -2px 0 red, 2px 0 blue; }
-          20% { transform: translate(-2px, 2px); }
-          40% { transform: translate(-2px, -2px); text-shadow: 2px 0 red, -2px 0 blue; }
-          60% { transform: translate(2px, 2px); }
-          80% { transform: translate(2px, -2px); text-shadow: -2px 0 red, 2px 0 blue; }
-          100% { transform: translate(0); }
-        }
-        .glitch-tag { font-size: 0.8rem; color: #ff0000; font-weight: bold; display: inline-block; margin: 5px; animation: glitch 0.3s infinite linear; letter-spacing: 1px; text-transform: uppercase; }
+        /* PRO GLITCH SHIFT EFFECT - NO SHAKING */
+        .glitch-tag { font-size: 0.8rem; color: #ff0000; font-weight: bold; display: inline-block; margin: 5px; position: relative; text-transform: uppercase; letter-spacing: 1px; }
+        .glitch-tag::before, .glitch-tag::after { content: attr(data-text); position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: transparent; }
+        .glitch-tag::before { left: 2px; text-shadow: -2px 0 #ff00c1; clip: rect(44px, 450px, 56px, 0); animation: shift-1 3s infinite linear alternate-reverse; }
+        .glitch-tag::after { left: -2px; text-shadow: -2px 0 #00fff9; clip: rect(44px, 450px, 56px, 0); animation: shift-2 2s infinite linear alternate-reverse; }
+        @keyframes shift-1 { 0% { clip: rect(9px, 9999px, 50px, 0); } 20% { clip: rect(78px, 9999px, 92px, 0); } 40% { clip: rect(12px, 9999px, 25px, 0); } 60% { clip: rect(67px, 9999px, 80px, 0); } 80% { clip: rect(3px, 9999px, 45px, 0); } 100% { clip: rect(55px, 9999px, 71px, 0); } }
+        @keyframes shift-2 { 0% { clip: rect(44px, 9999px, 56px, 0); } 100% { clip: rect(12px, 9999px, 6px, 0); } }
         #youtube-player { display: none; }
     </style>
 </head>
@@ -43,11 +40,11 @@
         <div id="youtube-player"></div>
         <button class="audio-btn" onclick="toggleMusic()" id="btnText">▶ PLAY SOUND</button>
         <div style="margin-top: 10px; padding-bottom: 50px;">
-            <span class="glitch-tag">#DefacerIndonesia</span>
-            <span class="glitch-tag">#IndonesiaDarkNet</span>
-            <span class="glitch-tag">#RXPteam</span>
-            <span class="glitch-tag">#SCAteam</span>
-            <span class="glitch-tag">#SCAnewgen</span>
+            <span class="glitch-tag" data-text="#DefacerIndonesia">#DefacerIndonesia</span>
+            <span class="glitch-tag" data-text="#IndonesiaDarkNet">#IndonesiaDarkNet</span>
+            <span class="glitch-tag" data-text="#RXPteam">#RXPteam</span>
+            <span class="glitch-tag" data-text="#SCAteam">#SCAteam</span>
+            <span class="glitch-tag" data-text="#SCAnewgen">#SCAnewgen</span>
         </div>
     </div>
     <script src="https://www.youtube.com/iframe_api"></script>
