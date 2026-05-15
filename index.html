@@ -16,7 +16,8 @@
         .message { font-size: 0.85rem; color: #fff; text-shadow: 0 0 8px #ff0000; max-width: 450px; line-height: 1.4; margin-bottom: 10px; padding: 0 20px; }
         .thanks { font-size: 0.75rem; color: #ffffff; text-shadow: 0 0 10px #ff0000; margin-bottom: 15px; }
         .logo-hybrid { width: 280px; opacity: 0.8; filter: drop-shadow(0 0 5px red); margin-bottom: 15px; }
-        .audio-btn { background: rgba(255,0,0,0.1); border: 2px solid #ff0000; color: #ff0000; font-family: 'Orbitron'; padding: 12px 25px; cursor: pointer; border-radius: 8px; box-shadow: 0 0 15px #ff0000; margin-top: 10px; font-weight: bold; text-transform: uppercase; letter-spacing: 2px; }
+        .audio-btn { background: rgba(255,0,0,0.1); border: 2px solid #ff0000; color: #ff0000; font-family: 'Orbitron'; padding: 12px 25px; cursor: pointer; border-radius: 8px; box-shadow: 0 0 15px #ff0000; margin-top: 10px; font-weight: bold; }
+        #youtube-player { display: none; }
     </style>
 </head>
 <body>
@@ -29,19 +30,33 @@
         <div class="thanks">thanks to : REZXPLOIT RXP TEAM SCA NEWGEN</div>
         <img src="https://i.postimg.cc/mgxdJhSR/20260515-200027.png" class="logo-hybrid">
         
-        <audio id="myAudio" loop>
-            <source src="https://raw.githubusercontent.com/fanz-zah/assets/main/coldness.mp3" type="audio/mpeg">
-        </audio>
-        <button class="audio-btn" onclick="toggleAudio()" id="btnText">▶ PLAY SOUND</button>
+        <div id="youtube-player"></div>
+        <button class="audio-btn" onclick="toggleMusic()" id="btnText">▶ PLAY SOUND</button>
     </div>
 
+    <script src="https://www.youtube.com/iframe_api"></script>
     <script>
-        const audio = document.getElementById('myAudio');
-        const btn = document.getElementById('btnText');
-        function toggleAudio() {
-            if (audio.paused) { audio.play(); btn.innerHTML = '⏸ STOP SOUND'; }
-            else { audio.pause(); btn.innerHTML = '▶ PLAY SOUND'; }
+        let player;
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player('youtube-player', {
+                height: '0',
+                width: '0',
+                videoId: 'VKWDxrhUhWc',
+                events: { 'onReady': onPlayerReady }
+            });
         }
+        function onPlayerReady(event) { console.log("Engine Ready"); }
+        function toggleMusic() {
+            const btn = document.getElementById('btnText');
+            if (player.getPlayerState() === 1) {
+                player.pauseVideo();
+                btn.innerHTML = '▶ PLAY SOUND';
+            } else {
+                player.playVideo();
+                btn.innerHTML = '⏸ STOP SOUND';
+            }
+        }
+
         const canvas = document.getElementById('matrix');
         const ctx = canvas.getContext('2d');
         function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
