@@ -16,96 +16,49 @@
         .message { font-size: 0.85rem; color: #fff; text-shadow: 0 0 8px #ff0000; max-width: 450px; line-height: 1.4; margin-bottom: 10px; padding: 0 20px; }
         .thanks { font-size: 0.75rem; color: #ffffff; text-shadow: 0 0 10px #ff0000; margin-bottom: 15px; }
         .logo-hybrid { width: 280px; opacity: 0.8; filter: drop-shadow(0 0 5px red); margin-bottom: 15px; }
-        .audio-btn { background: rgba(255,0,0,0.1); border: 2px solid #ff0000; color: #ff0000; font-family: 'Orbitron'; padding: 12px 25px; cursor: pointer; border-radius: 8px; box-shadow: 0 0 15px #ff0000; margin-top: 10px; font-weight: bold; }
+        .audio-btn { background: rgba(255,0,0,0.1); border: 2px solid #ff0000; color: #ff0000; font-family: 'Orbitron'; padding: 10px 20px; cursor: pointer; border-radius: 8px; box-shadow: 0 0 15px #ff0000; margin-bottom: 20px; font-weight: bold; }
+        
+        /* REAL GLITCH EFFECT BY REZ_MODZ */
+        .glitch-wrapper { margin-top: 10px; padding-bottom: 50px; }
+        .glitch { font-size: 0.85rem; font-weight: bold; color: #ff0000; position: relative; display: inline-block; margin: 5px; text-transform: uppercase; letter-spacing: 1px; }
+        .glitch::before, .glitch::after { content: attr(data-text); position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: black; }
+        .glitch::before { left: 2px; text-shadow: -2px 0 #00ffff; clip: rect(44px, 450px, 56px, 0); animation: glitch-anim 5s infinite linear alternate-reverse; }
+        .glitch::after { left: -2px; text-shadow: -2px 0 #ff00ff; clip: rect(44px, 450px, 56px, 0); animation: glitch-anim2 5s infinite linear alternate-reverse; }
+        @keyframes glitch-anim { 0% { clip: rect(2px, 9999px, 49px, 0); } 20% { clip: rect(69px, 9999px, 80px, 0); } 40% { clip: rect(10px, 9999px, 30px, 0); } 60% { clip: rect(70px, 9999px, 90px, 0); } 80% { clip: rect(15px, 9999px, 40px, 0); } 100% { clip: rect(50px, 9999px, 70px, 0); } }
+        @keyframes glitch-anim2 { 0% { clip: rect(15px, 9999px, 30px, 0); } 20% { clip: rect(5px, 9999px, 60px, 0); } 40% { clip: rect(40px, 9999px, 80px, 0); } 60% { clip: rect(20px, 9999px, 50px, 0); } 80% { clip: rect(60px, 9999px, 90px, 0); } 100% { clip: rect(10px, 9999px, 40px, 0); } }
         #youtube-player { display: none; }
-@keyframes glitch { 0% { transform: translate(0); text-shadow: -2px 0 red, 2px 0 blue; } 20% { transform: translate(-2px, 2px); } 40% { transform: translate(-2px, -2px); text-shadow: 2px 0 red, -2px 0 blue; } 60% { transform: translate(2px, 2px); } 80% { transform: translate(2px, -2px); text-shadow: -2px 0 red, 2px 0 blue; } 100% { transform: translate(0); } } .glitch-tag { font-size: 0.8rem; color: #ff0000; font-weight: bold; display: inline-block; margin: 5px; animation: glitch 0.2s infinite linear; letter-spacing: 1px; text-transform: uppercase; }
     </style>
 </head>
 <body>
-        <div style="margin-top: 20px; padding-bottom: 40px;">
-            <span class="glitch-tag">#DefacerIndonesia</span>
-            <span class="glitch-tag">#IndonesiaDarkNet</span>
-            <span class="glitch-tag">#RXPteam</span>
-            <span class="glitch-tag">#SCAnewgen</span>
-            <span class="glitch-tag">#FuckPolice</span>
-            <span class="glitch-tag">#IndonesiaKeras</span>
-        </div>
     <div class="bg-overlay"></div>
     <canvas id="matrix"></canvas>
     <div class="container">
         <img src="https://i.postimg.cc/tTrVYy0q/ezgif-4d22387526e86195.gif" class="hacker-img">
-        <div style="margin-top: 20px; padding-bottom: 40px;">
-            <span class="glitch-tag">#DefacerIndonesia</span>
-            <span class="glitch-tag">#IndonesiaDarkNet</span>
-            <span class="glitch-tag">#RXPteam</span>
-            <span class="glitch-tag">#SCAnewgen</span>
-            <span class="glitch-tag">#FuckPolice</span>
-            <span class="glitch-tag">#IndonesiaKeras</span>
-        </div>
         <div class="hacked-text">[ HACKED BY fanz_... ]</div>
-        <div style="margin-top: 20px; padding-bottom: 40px;">
-            <span class="glitch-tag">#DefacerIndonesia</span>
-            <span class="glitch-tag">#IndonesiaDarkNet</span>
-            <span class="glitch-tag">#RXPteam</span>
-            <span class="glitch-tag">#SCAnewgen</span>
-            <span class="glitch-tag">#FuckPolice</span>
-            <span class="glitch-tag">#IndonesiaKeras</span>
-        </div>
         <div class="message">"Keamanan hanyalah ilusi, Kami ada di mana-mana, namun tak terlihat. Kami tidak merusak, kami hanya memberi tahu bahwa Anda lemah."</div>
-        <div style="margin-top: 20px; padding-bottom: 40px;">
-            <span class="glitch-tag">#DefacerIndonesia</span>
-            <span class="glitch-tag">#IndonesiaDarkNet</span>
-            <span class="glitch-tag">#RXPteam</span>
-            <span class="glitch-tag">#SCAnewgen</span>
-            <span class="glitch-tag">#FuckPolice</span>
-            <span class="glitch-tag">#IndonesiaKeras</span>
-        </div>
         <div class="thanks">thanks to : REZXPLOIT RXP TEAM SCA NEWGEN</div>
         <img src="https://i.postimg.cc/mgxdJhSR/20260515-200027.png" class="logo-hybrid">
-        
-        <div style="margin-top: 20px; padding-bottom: 40px;">
-            <span class="glitch-tag">#DefacerIndonesia</span>
-            <span class="glitch-tag">#IndonesiaDarkNet</span>
-            <span class="glitch-tag">#RXPteam</span>
-            <span class="glitch-tag">#SCAnewgen</span>
-            <span class="glitch-tag">#FuckPolice</span>
-            <span class="glitch-tag">#IndonesiaKeras</span>
-        </div>
         <div id="youtube-player"></div>
         <button class="audio-btn" onclick="toggleMusic()" id="btnText">▶ PLAY SOUND</button>
-        <div style="margin-top: 20px; padding-bottom: 40px;">
-            <span class="glitch-tag">#DefacerIndonesia</span>
-            <span class="glitch-tag">#IndonesiaDarkNet</span>
-            <span class="glitch-tag">#RXPteam</span>
-            <span class="glitch-tag">#SCAnewgen</span>
-            <span class="glitch-tag">#FuckPolice</span>
-            <span class="glitch-tag">#IndonesiaKeras</span>
+        <div class="glitch-wrapper">
+            <div class="glitch" data-text="#DefacerIndonesia">#DefacerIndonesia</div>
+            <div class="glitch" data-text="#IndonesiaDarkNet">#IndonesiaDarkNet</div>
+            <div class="glitch" data-text="#RXPteam">#RXPteam</div>
+            <div class="glitch" data-text="#SCAnewgen">#SCAnewgen</div>
+            <div class="glitch" data-text="#FuckPolice">#FuckPolice</div>
+            <div class="glitch" data-text="#IndonesiaKeras">#IndonesiaKeras</div>
         </div>
     </div>
-
     <script src="https://www.youtube.com/iframe_api"></script>
     <script>
         let player;
-        function onYouTubeIframeAPIReady() {
-            player = new YT.Player('youtube-player', {
-                height: '0',
-                width: '0',
-                videoId: 'VKWDxrhUhWc',
-                events: { 'onReady': onPlayerReady }
-            });
-        }
+        function onYouTubeIframeAPIReady() { player = new YT.Player('youtube-player', { height: '0', width: '0', videoId: 'VKWDxrhUhWc', events: { 'onReady': onPlayerReady } }); }
         function onPlayerReady(event) { console.log("Engine Ready"); }
         function toggleMusic() {
             const btn = document.getElementById('btnText');
-            if (player.getPlayerState() === 1) {
-                player.pauseVideo();
-                btn.innerHTML = '▶ PLAY SOUND';
-            } else {
-                player.playVideo();
-                btn.innerHTML = '⏸ STOP SOUND';
-            }
+            if (player.getPlayerState() === 1) { player.pauseVideo(); btn.innerHTML = '▶ PLAY SOUND'; }
+            else { player.playVideo(); btn.innerHTML = '⏸ STOP SOUND'; }
         }
-
         const canvas = document.getElementById('matrix');
         const ctx = canvas.getContext('2d');
         function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
