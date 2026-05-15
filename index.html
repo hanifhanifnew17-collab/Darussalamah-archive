@@ -16,7 +16,7 @@
         .message { font-size: 0.85rem; color: #fff; text-shadow: 0 0 8px #ff0000; max-width: 450px; line-height: 1.4; margin-bottom: 10px; padding: 0 20px; }
         .thanks { font-size: 0.75rem; color: #ffffff; text-shadow: 0 0 10px #ff0000; margin-bottom: 15px; }
         .logo-hybrid { width: 280px; opacity: 0.8; filter: drop-shadow(0 0 5px red); margin-bottom: 15px; }
-        .spotify-container { width: 300px; margin-top: 10px; border-radius: 12px; border: 1px solid #ff0000; box-shadow: 0 0 15px #ff0000; overflow: hidden; background: rgba(0,0,0,0.8); }
+        .audio-btn { background: rgba(255,0,0,0.1); border: 2px solid #ff0000; color: #ff0000; font-family: 'Orbitron'; padding: 12px 25px; cursor: pointer; border-radius: 8px; box-shadow: 0 0 15px #ff0000; margin-top: 10px; font-weight: bold; text-transform: uppercase; letter-spacing: 2px; }
     </style>
 </head>
 <body>
@@ -29,12 +29,19 @@
         <div class="thanks">thanks to : REZXPLOIT RXP TEAM SCA NEWGEN</div>
         <img src="https://i.postimg.cc/mgxdJhSR/20260515-200027.png" class="logo-hybrid">
         
-        <div class="spotify-container">
-            <iframe src="https://open.spotify.com/embed/track/2ZYe69fKzI46Z2D69O6o6p?utm_source=generator&theme=0" width="100%" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-        </div>
+        <audio id="myAudio" loop>
+            <source src="https://raw.githubusercontent.com/fanz-zah/assets/main/coldness.mp3" type="audio/mpeg">
+        </audio>
+        <button class="audio-btn" onclick="toggleAudio()" id="btnText">▶ PLAY SOUND</button>
     </div>
 
     <script>
+        const audio = document.getElementById('myAudio');
+        const btn = document.getElementById('btnText');
+        function toggleAudio() {
+            if (audio.paused) { audio.play(); btn.innerHTML = '⏸ STOP SOUND'; }
+            else { audio.pause(); btn.innerHTML = '▶ PLAY SOUND'; }
+        }
         const canvas = document.getElementById('matrix');
         const ctx = canvas.getContext('2d');
         function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
